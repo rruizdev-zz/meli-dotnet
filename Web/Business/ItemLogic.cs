@@ -1,11 +1,12 @@
 using Web.Interfaces;
-using Web.Models;
+using Web.Models.Item;
+using Web.Models.Search;
 
 namespace Web.Business
 {
     public class ItemLogic : IItemLogic
     {
-        public ItemResult ParseItemResult(string itemResult, string descriptionResult)
+        public DetailResult ParseItemResult(string itemResult, string descriptionResult)
         {
             throw new System.NotImplementedException();
         }

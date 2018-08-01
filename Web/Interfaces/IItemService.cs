@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
-using Web.Models;
+using Web.Models.Item;
+using Web.Models.Search;
 
 namespace Web.Interfaces
 {
@@ -7,6 +8,6 @@ namespace Web.Interfaces
     {
         Task<SearchResult> GetSearchResult(string query);
 
-        Task<ItemResult> GetItemResult(string id);
+        Task<DetailResult> GetItemResult(string id);
     }
 }

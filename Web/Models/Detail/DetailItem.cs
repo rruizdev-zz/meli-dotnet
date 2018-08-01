@@ -1,8 +1,6 @@
-using Web.Models;
-
 namespace Web.Models.Item
 {
-    public class ItemDetail : Item
+    public class DetailItem : SingleItem
     {
         public int sold_quantity { get; set; }
 

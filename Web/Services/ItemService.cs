@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Web.Models;
+using Web.Models.Item;
+using Web.Models.Search;
 using Web.Business;
 
 namespace Web.Services
@@ -26,7 +28,7 @@ namespace Web.Services
             return _itemLogic.ParseSearchResults(searchResults);
         }
 
-        public async Task<ItemResult> GetItemResult(string id)
+        public async Task<DetailResult> GetItemResult(string id)
         {
             var itemResult = await GetResult<string>(string.Concat("https://api.mercadolibre.com/items/​", id));
             var descriptionResult = await GetResult<string>(string.Format("https://api.mercadolibre.com/items/​{0}/description", id));

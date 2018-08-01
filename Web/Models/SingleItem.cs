@@ -1,6 +1,6 @@
 namespace Web.Models
 {
-    public class Item
+    public class SingleItem
     {
         public string id { get; set; }
 

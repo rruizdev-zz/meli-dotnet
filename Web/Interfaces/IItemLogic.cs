@@ -1,4 +1,5 @@
-using Web.Models;
+using Web.Models.Item;
+using Web.Models.Search;
 
 namespace Web.Interfaces
 {
@@ -6,6 +7,6 @@ namespace Web.Interfaces
     {
         SearchResult ParseSearchResults(string searchResults);
 
-        ItemResult ParseItemResult(string itemResult, string descriptionResult);
+        DetailResult ParseItemResult(string itemResult, string descriptionResult);
     }
 }
