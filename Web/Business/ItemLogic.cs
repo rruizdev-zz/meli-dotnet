@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Web.Interfaces;
@@ -30,16 +33,28 @@ namespace Web.Business
         {
             var searchObject = JObject.Parse(searchResults);
 
-            var newSearchResult = new SearchResult 
+            var categoryValues = searchObject.SelectTokens("filters")
+                .FirstOrDefault(filter => filter.SelectToken("id").Value<string>() == "category")?.SelectTokens("values")
+                .FirstOrDefault()?.SelectTokens("path_from_root")
+                .Select(category => category.SelectToken("name").Value<string>());
+
+            var itemValues = searchObject.SelectTokens("results").Select(ConvertirEnItem<SingleItem>);
+
+            return new SearchResult
             {
                 author = new Author
                 {
                     name = "Roberto",
                     lastname = "Ruiz"
-                }
+                },
+                categories = categoryValues.ToList(),
+                items = itemValues.ToList()
             };
+        }
 
-            return newSearchResult;
+        private T ConvertirEnItem<T>(JToken itemObject)
+        {
+            throw new NotImplementedException();
         }
     }
 }
