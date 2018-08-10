@@ -1,8 +1,8 @@
+using Server.Business.Models.Detail;
+using Server.Business.Models.Search;
 using System.Threading.Tasks;
-using Web.Models.Item;
-using Web.Models.Search;
 
-namespace Web.Interfaces
+namespace Server.Infrastructure.Services.Interfaces
 {
     public interface IItemService
     {

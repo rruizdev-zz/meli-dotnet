@@ -1,4 +1,4 @@
-namespace Web.Models.Item
+namespace Server.Business.Models.Detail
 {
     public class DetailItem : SingleItem
     {

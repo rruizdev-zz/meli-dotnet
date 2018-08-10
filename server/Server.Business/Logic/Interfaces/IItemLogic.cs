@@ -1,7 +1,7 @@
-using Web.Models.Item;
-using Web.Models.Search;
+using Server.Business.Models.Detail;
+using Server.Business.Models.Search;
 
-namespace Web.Interfaces
+namespace Server.Business.Logic.Interfaces
 {
     public interface IItemLogic 
     {
