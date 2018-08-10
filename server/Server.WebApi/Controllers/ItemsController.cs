@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Server.Infrastructure.Services;
 using Server.Infrastructure.Services.Interfaces;
@@ -8,7 +9,7 @@ namespace Server.WebApi.Controllers
     [Route("api/[controller]")]
     public class ItemsController : ControllerBase
     {
-        IItemService _itemService;
+        private IItemService _itemService;
 
         public ItemsController() => _itemService = new ItemService();
 
