@@ -1,6 +1,8 @@
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 using Server.Business.Logic.Interfaces;
 using Server.Business.Models;
+using Server.Business.Models.Config;
 using Server.Business.Models.Detail;
 using Server.Business.Models.Search;
 using System;
@@ -10,10 +12,17 @@ namespace Server.Business.Logic
 {
     public class ItemLogic : IItemLogic
     {
-        public DetailResult ParseItemResult(string itemResult, string descriptionResult)
+        private readonly IOptions<MeliConfig> _config;
+
+        public ItemLogic(IOptions<MeliConfig> config)
         {
-            var itemObject = JObject.Parse(itemResult);
-            var descriptionObject = JObject.Parse(itemResult);
+            _config = config;
+        }
+
+        public DetailResult ParseItemResult(string detailResult, string descriptionResult)
+        {
+            var itemObject = JObject.Parse(detailResult);
+            var descriptionObject = JObject.Parse(detailResult);
 
             var item = itemObject.SelectToken("");
 
@@ -45,8 +54,8 @@ namespace Server.Business.Logic
             {
                 author = new Author
                 {
-                    name = "",
-                    lastname = ""
+                    name = _config.Value.AuthorName,
+                    lastname = _config.Value.AuthorSurname
                 },
                 categories = categories.ToList(),
                 items = items.ToList()

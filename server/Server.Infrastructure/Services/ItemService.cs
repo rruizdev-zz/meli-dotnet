@@ -1,7 +1,5 @@
-using Server.Business.Logic;
-using Server.Business.Logic.Interfaces;
-using Server.Business.Models.Detail;
-using Server.Business.Models.Search;
+using Microsoft.Extensions.Options;
+using Server.Business.Models.Config;
 using Server.Infrastructure.Services.Interfaces;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -10,32 +8,34 @@ namespace Server.Infrastructure.Services
 {
     public class ItemService : IItemService
     {
-        private HttpClient _httpClient;
-        private IItemLogic _itemLogic;
+        private readonly HttpClient _httpClient;
+        private readonly IOptions<MeliConfig> _config;
 
-        public ItemService()
+        public ItemService(IOptions<MeliConfig> config)
         {
             _httpClient = new HttpClient();
-            _itemLogic = new ItemLogic();
+            _config = config;
         }
 
-        public async Task<SearchResult> GetSearchResult(string query) 
+        public async Task<string> GetSearchResult(string query) 
         {
-            var searchUri = string.Format("https://api.mercadolibre.com/sites/MLA/search?q={0}", query);
-            var searchResults = await GetResult<string>(searchUri);
-            
-            return _itemLogic.ParseSearchResults(searchResults);
+            var searchUri = string.Format(_config.Value.EndpointSearch, query);
+
+            return await GetResult<string>(searchUri);
+        }
+        
+        public async Task<string> GetDetailResult(string id)
+        {
+            var itemUri = string.Format(_config.Value.EndpointDetail, id);
+
+            return await GetResult<string>(itemUri);
         }
 
-        public async Task<DetailResult> GetItemResult(string id)
+        public async Task<string> GetDescriptionResult(string id)
         {
-            var itemUri = string.Format("https://api.mercadolibre.com/items/{0}​", id);
-            var itemResult = await GetResult<string>(itemUri);
+            var descriptionUri = string.Format(_config.Value.EndpointDescription, id);
 
-            var descriptionUri = string.Format("https://api.mercadolibre.com/items/​{0}/description", id);
-            var descriptionResult = await GetResult<string>(descriptionUri);
-
-            return _itemLogic.ParseItemResult(itemResult, descriptionResult);
+            return await GetResult<string>(descriptionUri);
         }
 
         private async Task<string> GetResult<T>(string uri) => 

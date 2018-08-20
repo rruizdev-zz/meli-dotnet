@@ -7,6 +7,6 @@ namespace Server.Business.Logic.Interfaces
     {
         SearchResult ParseSearchResults(string searchResults);
 
-        DetailResult ParseItemResult(string itemResult, string descriptionResult);
+        DetailResult ParseItemResult(string detailResult, string descriptionResult);
     }
 }
