@@ -30,8 +30,8 @@ namespace Server.Application.Tasks
             {
                 author = new Author 
                 {
-                    name = "Roberto",
-                    lastname = "Ruiz"
+                    name = _config.Value.AuthorName,
+                    lastname = _config.Value.AuthorSurname
                 },
                 item = null
             };
