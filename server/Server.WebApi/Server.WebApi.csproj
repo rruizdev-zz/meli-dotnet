@@ -20,7 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Server.Business\Server.Business.csproj" />
+    <ProjectReference Include="..\Server.Application\Server.Application.csproj" />
+    <ProjectReference Include="..\Server.Business\Server.Domain.csproj" />
     <ProjectReference Include="..\Server.Infrastructure\Server.Infrastructure.csproj" />
   </ItemGroup>
 

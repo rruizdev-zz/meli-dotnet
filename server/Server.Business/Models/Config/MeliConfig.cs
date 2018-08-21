@@ -1,4 +1,4 @@
-﻿namespace Server.Business.Models.Config
+﻿namespace Server.Domain.Models.Config
 {
     public class MeliConfig
     {

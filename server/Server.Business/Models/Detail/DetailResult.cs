@@ -1,4 +1,4 @@
-namespace Server.Business.Models.Detail
+namespace Server.Domain.Models.Detail
 {
     public class DetailResult
     {

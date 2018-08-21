@@ -1,4 +1,4 @@
-namespace Server.Business.Models
+namespace Server.Domain.Models
 {
     public class Author
     {

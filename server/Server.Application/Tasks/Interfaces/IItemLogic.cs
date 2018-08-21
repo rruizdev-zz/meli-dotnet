@@ -1,7 +1,7 @@
-using Server.Business.Models.Detail;
-using Server.Business.Models.Search;
+using Server.Domain.Models.Detail;
+using Server.Domain.Models.Search;
 
-namespace Server.Business.Logic.Interfaces
+namespace Server.Application.Tasks.Interfaces
 {
     public interface IItemLogic 
     {

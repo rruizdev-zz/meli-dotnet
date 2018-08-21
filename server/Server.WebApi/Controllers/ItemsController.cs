@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Server.Business.Logic;
-using Server.Business.Logic.Interfaces;
-using Server.Business.Models.Config;
+using Server.Application.Tasks;
+using Server.Application.Tasks.Interfaces;
+using Server.Domain.Models.Config;
 using Server.Infrastructure.Services;
 using Server.Infrastructure.Services.Interfaces;
 

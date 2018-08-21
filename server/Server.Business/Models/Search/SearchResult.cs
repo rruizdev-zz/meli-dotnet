@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Server.Business.Models.Search
+namespace Server.Domain.Models.Search
 {
     public class SearchResult
     {

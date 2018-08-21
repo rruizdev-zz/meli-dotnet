@@ -1,14 +1,14 @@
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
-using Server.Business.Logic.Interfaces;
-using Server.Business.Models;
-using Server.Business.Models.Config;
-using Server.Business.Models.Detail;
-using Server.Business.Models.Search;
+using Server.Application.Tasks.Interfaces;
+using Server.Domain.Models;
+using Server.Domain.Models.Config;
+using Server.Domain.Models.Detail;
+using Server.Domain.Models.Search;
 using System;
 using System.Linq;
 
-namespace Server.Business.Logic
+namespace Server.Application.Tasks
 {
     public class ItemLogic : IItemLogic
     {

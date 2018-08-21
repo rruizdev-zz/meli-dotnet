@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Options;
-using Server.Business.Models.Config;
+using Server.Domain.Models.Config;
 using Server.Infrastructure.Services.Interfaces;
 using System.Net.Http;
 using System.Threading.Tasks;

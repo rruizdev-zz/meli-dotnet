@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Server.Business.Models.Config;
+using Server.Domain.Models.Config;
 
 namespace Server.WebApi
 {
