@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NJsonSchema;
+using Microsoft.AspNetCore.Rewrite;
 using NSwag.AspNetCore;
 
 namespace MercadoLibre.WebApi
@@ -33,6 +33,10 @@ namespace MercadoLibre.WebApi
 
 			app.UseSwagger();
 			app.UseSwaggerUi3();
+
+			var option = new RewriteOptions();
+			option.AddRedirect("^$", "swagger");
+			app.UseRewriter(option);
 
 			app.UseMvc();
 		}
