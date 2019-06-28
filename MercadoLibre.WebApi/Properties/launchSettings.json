@@ -4,7 +4,7 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:5000",
+      "applicationUrl": "http://localhost:1810",
       "sslPort": 0
     }
   },
@@ -12,15 +12,14 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/values",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+      "launchUrl": "/swagger",
+        "ASPNETCORE_ENVIRONMENT": "Release"
       }
     },
     "MercadoLibre.WebApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "/swagger",
       "applicationUrl": "http://localhost:1810",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

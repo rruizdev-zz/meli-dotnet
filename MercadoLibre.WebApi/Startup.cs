@@ -34,10 +34,6 @@ namespace MercadoLibre.WebApi
 			app.UseSwagger();
 			app.UseSwaggerUi3();
 
-			var option = new RewriteOptions();
-			option.AddRedirect("^$", "swagger");
-			app.UseRewriter(option);
-
 			app.UseMvc();
 		}
 	}
