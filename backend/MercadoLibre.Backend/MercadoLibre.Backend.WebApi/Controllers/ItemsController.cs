@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using MercadoLibre.Backend.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MercadoLibre.Backend.WebApi.Controllers
@@ -7,16 +9,17 @@ namespace MercadoLibre.Backend.WebApi.Controllers
     [ApiController]
     public class ItemsController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> GetItemsLike(string q)
+        private readonly IItemsService _itemsService;
+
+        public ItemsController(IItemsService itemsService)
         {
-            return new string[] { q };
+            _itemsService = itemsService;
         }
 
+        [HttpGet]
+        public Task<IList<string>> GetItemsLike(string q) => _itemsService.GetItemsLike(q);
+
         [HttpGet("{id}")]
-        public ActionResult<string> GetItemDetail(int id)
-        {
-            return $"{id}: value";
-        }
+        public ActionResult<string> GetItemDetail(int id) => $"{id}: value";
     }
 }

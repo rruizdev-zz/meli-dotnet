@@ -11,4 +11,8 @@
     <PackageReference Include="NSwag.AspNetCore" Version="13.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MercadoLibre.Backend.Domain\MercadoLibre.Backend.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
