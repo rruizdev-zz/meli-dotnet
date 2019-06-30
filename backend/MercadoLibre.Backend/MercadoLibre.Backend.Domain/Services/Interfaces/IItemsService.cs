@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using MercadoLibre.Backend.Domain.Models;
 using System.Threading.Tasks;
 
 namespace MercadoLibre.Backend.Domain.Services.Interfaces
 {
     public interface IItemsService
     {
-        Task<IList<string>> GetItemsLike(string query); 
+        Task<ItemByQuery> GetBy(string query);
+
+        //Task<ItemById> GetBy(int id);
+
+        //Task<ItemDescriptionById> GetDescriptionBy(int id);
     }
 }
