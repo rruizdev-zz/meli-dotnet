@@ -1,5 +1,7 @@
-﻿using MercadoLibre.Backend.Domain.Services;
+﻿using AutoMapper;
+using MercadoLibre.Backend.Domain.Services;
 using MercadoLibre.Backend.Domain.Services.Interfaces;
+using MercadoLibre.Backend.WebApi.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +22,11 @@ namespace MercadoLibre.Backend.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient<IItemsService, ItemsService>();
+
+            services.AddSingleton(new MapperConfiguration(config =>
+            {
+                config.AddProfile(new ItemMapper());
+            }).CreateMapper());
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

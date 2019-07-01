@@ -1,4 +1,6 @@
-﻿using MercadoLibre.Backend.Domain.Models;
+﻿using AutoMapper;
+using MercadoLibre.Backend.Domain.Models;
+using MercadoLibre.Backend.Domain.Responses;
 using MercadoLibre.Backend.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
@@ -11,11 +13,15 @@ namespace MercadoLibre.Backend.WebApi.Controllers
     [ApiController]
     public class ItemsController : ControllerBase
     {
-        private readonly IItemsService _itemsService;
+        private readonly IItemsService _service;
 
-        public ItemsController(IItemsService itemsService)
+        private readonly IMapper _mapper;
+
+        public ItemsController(IItemsService service, IMapper mapper)
         {
-            _itemsService = itemsService;
+            _service = service;
+
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -24,20 +30,20 @@ namespace MercadoLibre.Backend.WebApi.Controllers
         /// <param name="q">Search parameter</param>
         /// <returns>A lot of items</returns>
         [HttpGet]
-        [SwaggerResponse(HttpStatusCode.OK, typeof(ItemByQuery))]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(ItemByQueryResponse))]
         public async Task<IActionResult> GetByQuery(string q)
         {
-            var response = await _itemsService.GetBy(q);
+            var response = await _service.GetBy(q);
 
-            return Ok(response);
+            return Ok(_mapper.Map<ItemByQueryResponse>(response));
         }
 
         //[HttpGet("{id}")]
         //public async Task<IActionResult> GetById(int id)
         //{
-        //    var itemResponse = await _itemsService.GetBy(id);
+        //    var itemResponse = await _service.GetBy(id);
 
-        //    var descriptionResponse = await _itemsService.GetDescriptionBy(id);
+        //    var descriptionResponse = await _service.GetDescriptionBy(id);
 
         //    return Ok(itemResponse);
         //}

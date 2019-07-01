@@ -34,7 +34,5 @@ namespace MercadoLibre.Backend.Domain.Models
 
         [JsonProperty(PropertyName = "available_filters")]
         public IList<ItemByQueryFilter> AvailableFilters { get; set; }
-
-
     }
 }

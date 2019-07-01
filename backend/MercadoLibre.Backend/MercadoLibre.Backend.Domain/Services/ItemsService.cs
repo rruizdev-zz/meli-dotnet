@@ -12,9 +12,9 @@ namespace MercadoLibre.Backend.Domain.Services
 
         private const string API_GET_ITEMSQUERY = "https://api.mercadolibre.com/sites/MLA/search?q={0}";
 
-        private const string API_GET_ITEMDETAIL = "https://api.mercadolibre.com/items/{0}";
+        //private const string API_GET_ITEMDETAIL = "https://api.mercadolibre.com/items/{0}";
 
-        private const string API_GET_ITEMDESCRIPTION = "https://api.mercadolibre.com/items/{0}/description";
+        //private const string API_GET_ITEMDESCRIPTION = "https://api.mercadolibre.com/items/{0}/description";
 
         public ItemsService(HttpClient httpClient)
         {
