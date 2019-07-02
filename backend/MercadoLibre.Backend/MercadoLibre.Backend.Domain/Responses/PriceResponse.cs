@@ -11,6 +11,6 @@ namespace MercadoLibre.Backend.Domain.Responses
         public decimal Amount { get; set; }
 
         [JsonProperty(PropertyName = "decimals")]
-        public int Decimals { get; set; }
+        public decimal Decimals { get; set; }
     }
 }

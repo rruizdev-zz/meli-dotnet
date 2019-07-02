@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MercadoLibre.Backend.Domain.Services;
 using MercadoLibre.Backend.Domain.Services.Interfaces;
-using MercadoLibre.Backend.WebApi.Mappers;
+using MercadoLibre.Backend.Domain.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
