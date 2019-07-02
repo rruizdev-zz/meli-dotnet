@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using MercadoLibre.Backend.Domain.Models;
 using MercadoLibre.Backend.Domain.Responses;
 using MercadoLibre.Backend.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;

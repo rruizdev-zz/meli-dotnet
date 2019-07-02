@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace MercadoLibre.Backend.Domain.Models
 {
@@ -9,5 +10,8 @@ namespace MercadoLibre.Backend.Domain.Models
 
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        [JsonProperty(PropertyName = "path_from_root")]
+        public IList<KeyValueAttribute> PathFromRoot { get; set; }
     }
 }
