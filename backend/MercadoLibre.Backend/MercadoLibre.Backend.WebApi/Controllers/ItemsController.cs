@@ -37,14 +37,14 @@ namespace MercadoLibre.Backend.WebApi.Controllers
             return Ok(_mapper.Map<ItemByQueryResponse>(response));
         }
 
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetById(int id)
-        //{
-        //    var itemResponse = await _service.GetBy(id);
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var itemResponse = await _service.GetBy(id);
 
-        //    var descriptionResponse = await _service.GetDescriptionBy(id);
+            var descriptionResponse = await _service.GetDescriptionBy(id);
 
-        //    return Ok(itemResponse);
-        //}
+            return Ok(itemResponse);
+        }
     }
 }

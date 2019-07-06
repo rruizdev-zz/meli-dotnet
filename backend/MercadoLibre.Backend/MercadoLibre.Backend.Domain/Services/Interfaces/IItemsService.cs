@@ -7,8 +7,8 @@ namespace MercadoLibre.Backend.Domain.Services.Interfaces
     {
         Task<ItemByQuery> GetBy(string query);
 
-        //Task<ItemById> GetBy(int id);
+        Task<ItemById> GetBy(int id);
 
-        //Task<ItemDescriptionById> GetDescriptionBy(int id);
+        Task<ItemDescriptionById> GetDescriptionBy(int id);
     }
 }
