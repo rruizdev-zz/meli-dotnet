@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace MercadoLibre.Backend.Domain.Models
+namespace MercadoLibre.Backend.Domain.Models.Items
 {
     public class ItemByQueryPaging
     {

@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using Newtonsoft.Json;
 
-namespace MercadoLibre.Backend.Domain.Models
+namespace MercadoLibre.Backend.Domain.Models.Items
 {
     public class ItemDescriptionById
     {

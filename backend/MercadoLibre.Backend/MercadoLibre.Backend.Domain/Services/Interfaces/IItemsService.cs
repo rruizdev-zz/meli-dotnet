@@ -1,5 +1,6 @@
 ﻿using MercadoLibre.Backend.Domain.Models;
 using System.Threading.Tasks;
+using MercadoLibre.Backend.Domain.Models.Items;
 
 namespace MercadoLibre.Backend.Domain.Services.Interfaces
 {

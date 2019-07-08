@@ -3,6 +3,7 @@ using MercadoLibre.Backend.Domain.Services.Interfaces;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
+using MercadoLibre.Backend.Domain.Models.Items;
 
 namespace MercadoLibre.Backend.Domain.Services
 {

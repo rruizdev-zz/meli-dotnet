@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
-namespace MercadoLibre.Backend.Domain.Models
+namespace MercadoLibre.Backend.Domain.Models.Items
 {
     public class ItemById : ItemResult
     {
