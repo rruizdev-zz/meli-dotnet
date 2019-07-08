@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemResultShipping
+    public class ResultShipping
     {
         [JsonProperty(PropertyName = "free_shipping")]
         public bool FreeShipping { get; set; }

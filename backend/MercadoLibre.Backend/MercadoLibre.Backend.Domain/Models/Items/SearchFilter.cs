@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemByQueryFilter
+    public class SearchFilter
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

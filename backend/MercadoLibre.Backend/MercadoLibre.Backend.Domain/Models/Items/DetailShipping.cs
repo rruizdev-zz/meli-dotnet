@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemByIdShipping
+    public class DetailShipping
     {
         [JsonProperty(PropertyName = "mode")]
         public string Mode { get; set; }

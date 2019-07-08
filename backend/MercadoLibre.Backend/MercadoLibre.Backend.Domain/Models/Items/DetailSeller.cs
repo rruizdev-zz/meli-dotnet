@@ -2,7 +2,7 @@
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemByIdSeller : ItemByIdGeolocation
+    public class DetailSeller : DetailGeolocation
     {
         [JsonProperty(PropertyName = "city")]
         public KeyValueAttribute City { get; set; }

@@ -2,7 +2,7 @@
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemResultAttribute
+    public class ResultAttribute
     {
         [JsonProperty(PropertyName = "attribute_group_name")]
         public string AttributeGroupName { get; set; }

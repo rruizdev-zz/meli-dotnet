@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemByQuery
+    public class Search
     {
         [JsonProperty(PropertyName = "site_id")]
         public string SiteId { get; set; }
@@ -12,16 +12,16 @@ namespace MercadoLibre.Backend.Domain.Models.Items
         public string Query { get; set; }
 
         [JsonProperty(PropertyName = "paging")]
-        public ItemByQueryPaging Paging { get; set; }
+        public SearchPaging Paging { get; set; }
 
         [JsonProperty(PropertyName = "results")]
-        public IList<ItemResult> Results { get; set; }
+        public IList<Result> Results { get; set; }
 
         [JsonProperty(PropertyName = "secondary_results")]
-        public IList<ItemResult> SecondaryResults { get; set; }
+        public IList<Result> SecondaryResults { get; set; }
 
         [JsonProperty(PropertyName = "related_results")]
-        public IList<ItemResult> RelatedResults { get; set; }
+        public IList<Result> RelatedResults { get; set; }
 
         [JsonProperty(PropertyName = "sort")]
         public KeyValueAttribute Sort { get; set; }
@@ -30,9 +30,9 @@ namespace MercadoLibre.Backend.Domain.Models.Items
         public IList<KeyValueAttribute> AvailableSorts { get; set; }
 
         [JsonProperty(PropertyName = "filters")]
-        public IList<ItemByQueryFilter> Filters { get; set; }
+        public IList<SearchFilter> Filters { get; set; }
 
         [JsonProperty(PropertyName = "available_filters")]
-        public IList<ItemByQueryFilter> AvailableFilters { get; set; }
+        public IList<SearchFilter> AvailableFilters { get; set; }
     }
 }

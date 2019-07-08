@@ -2,7 +2,7 @@
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemResultInstallment
+    public class ResultInstallment
     {
         [JsonProperty(PropertyName = "quantity")]
         public int? Quantity { get; set; }

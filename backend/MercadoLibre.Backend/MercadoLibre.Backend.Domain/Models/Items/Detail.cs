@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemById : ItemResult
+    public class Detail : Result
     {
         [JsonProperty(PropertyName = "subtitle")]
         public string Subtitle { get; set; }
@@ -25,19 +25,19 @@ namespace MercadoLibre.Backend.Domain.Models.Items
         public string SecureThumbnail { get; set; }
 
         [JsonProperty(PropertyName = "pictures")]
-        public IList<ItemByIdPicture> Pictures { get; set; }
+        public IList<DetailPicture> Pictures { get; set; }
 
         [JsonProperty(PropertyName = "attributes")]
-        public new IList<ItemByIdAttribute> Attributes { get; set; }
+        public new IList<DetailAttribute> Attributes { get; set; }
 
         [JsonProperty(PropertyName = "shipping")]
-        public new ItemByIdShipping Shipping { get; set; }
+        public new DetailShipping Shipping { get; set; }
 
         [JsonProperty(PropertyName = "seller_address")]
-        public new ItemByIdSeller SellerAddress { get; set; }
+        public new DetailSeller SellerAddress { get; set; }
 
         [JsonProperty(PropertyName = "geolocation")]
-        public ItemByIdGeolocation Geolocation { get; set; }
+        public DetailGeolocation Geolocation { get; set; }
 
         [JsonProperty(PropertyName = "listing_source")]
         public string ListingSource { get; set; }
@@ -64,8 +64,9 @@ namespace MercadoLibre.Backend.Domain.Models.Items
         public double Health { get; set; }
 
         [JsonProperty(PropertyName = "variations")]
-        public IList<ItemByIdVariations> Variations { get; set; }
+        public IList<DetailVariation> Variations { get; set; }
 
-        public ItemDescriptionById Description { get; set; }
+        // ReSharper disable once UnusedMember.Global
+        public Description Description { get; set; }
     }
 }

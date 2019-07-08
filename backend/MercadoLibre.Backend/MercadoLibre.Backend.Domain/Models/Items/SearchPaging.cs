@@ -2,7 +2,7 @@
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemByQueryPaging
+    public class SearchPaging
     {
         [JsonProperty(PropertyName = "total")]
         public int? TotalResults { get; set; }

@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemDescriptionById
+    public class Description
     {
         [JsonProperty(PropertyName = "text")]
         public string Text { get; set; }
@@ -18,6 +18,6 @@ namespace MercadoLibre.Backend.Domain.Models.Items
         public DateTime? DateCreated { get; set; }
 
         [JsonProperty(PropertyName = "snapshot")]
-        public ItemDescriptionByIdSnapshot Snapshot { get; set; }
+        public DescriptionSnapshot Snapshot { get; set; }
     }
 }

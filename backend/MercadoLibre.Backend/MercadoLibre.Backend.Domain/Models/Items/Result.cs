@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemResult
+    public class Result
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
@@ -16,7 +16,7 @@ namespace MercadoLibre.Backend.Domain.Models.Items
         public string Title { get; set; }
 
         [JsonProperty(PropertyName = "seller")]
-        public ItemResultSeller Seller { get; set; }
+        public ResultSeller Seller { get; set; }
 
         [JsonProperty(PropertyName = "price")]
         public decimal? Price { get; set; }
@@ -52,19 +52,19 @@ namespace MercadoLibre.Backend.Domain.Models.Items
         public bool AcceptsMercadoPago { get; set; }
 
         [JsonProperty(PropertyName = "installments")]
-        public ItemResultInstallment Installments { get; set; }
+        public ResultInstallment Installments { get; set; }
 
         [JsonProperty(PropertyName = "address")]
-        public ItemResultAddress Address { get; set; }
+        public ResultAddress Address { get; set; }
 
         [JsonProperty(PropertyName = "shipping")]
-        public ItemResultShipping Shipping { get; set; }
+        public ResultShipping Shipping { get; set; }
 
         [JsonProperty(PropertyName = "seller_address")]
-        public ItemResultSellerAddress SellerAddress { get; set; }
+        public ResultSellerAddress SellerAddress { get; set; }
 
         [JsonProperty(PropertyName = "attributes")]
-        public IList<ItemResultAttribute> Attributes { get; set; }
+        public IList<ResultAttribute> Attributes { get; set; }
 
         [JsonProperty(PropertyName = "original_price")]
         public decimal? OriginalPrice { get; set; }

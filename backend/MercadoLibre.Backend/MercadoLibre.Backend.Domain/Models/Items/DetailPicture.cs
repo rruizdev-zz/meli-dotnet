@@ -2,7 +2,7 @@
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemByIdPicture
+    public class DetailPicture
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

@@ -2,7 +2,7 @@
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemByIdGeolocation
+    public class DetailGeolocation
     {
         [JsonProperty(PropertyName = "Latitude")]
         public decimal Latitude { get; set; }

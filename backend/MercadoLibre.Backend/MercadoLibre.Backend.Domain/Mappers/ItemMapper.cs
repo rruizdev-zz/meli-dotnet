@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using MercadoLibre.Backend.Domain.Models;
 using MercadoLibre.Backend.Domain.Responses.Items;
 using System;
 using System.Collections.Generic;
@@ -13,14 +12,15 @@ namespace MercadoLibre.Backend.Domain.Mappers
     {
         public ItemMapper()
         {
-            CreateMap<ItemByQuery, SearchResponse>()
+            CreateMap<Search, SearchResponse>()
                 .ForMember(d => d.Categories, o => o.MapFrom(s => GetCategories(s.Filters)))
                 .ForMember(d => d.Items, o => o.MapFrom(s => GetItems(s.Results)));
-            CreateMap<ItemById, DetailResponse>()
-                .ForMember(d => d.Item, o => o.MapFrom(s => GetItem(s)));
+
+            CreateMap<Detail, DetailResponse>()
+                .ForMember(d => d.Item, o => o.MapFrom(s => GetDetail(s)));
         }
 
-        private object GetItem(ItemById result)
+        private object GetDetail(Detail result)
         {
             var price = result.Price.GetValueOrDefault(0);
 
@@ -44,7 +44,7 @@ namespace MercadoLibre.Backend.Domain.Mappers
             };
         }
 
-        private static IList<string> GetCategories(IList<ItemByQueryFilter> filters)
+        private static IList<string> GetCategories(IList<SearchFilter> filters)
         {
             var subject = filters.FirstOrDefault(f => f.Id == "category")?.Values.FirstOrDefault();
 
@@ -64,7 +64,7 @@ namespace MercadoLibre.Backend.Domain.Mappers
 
         }
 
-        private static IList<SearchItemResponse> GetItems(IList<ItemResult> results)
+        private static IList<SearchItemResponse> GetItems(IList<Result> results)
         {
             return results.Select(result =>
             {

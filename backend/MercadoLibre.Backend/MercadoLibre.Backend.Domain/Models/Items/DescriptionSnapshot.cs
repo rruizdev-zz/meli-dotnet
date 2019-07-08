@@ -2,7 +2,7 @@
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemDescriptionByIdSnapshot
+    public class DescriptionSnapshot
     {
         [JsonProperty(PropertyName = "url")]
         public string Url { get; set; }

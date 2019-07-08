@@ -2,7 +2,7 @@
 
 namespace MercadoLibre.Backend.Domain.Models.Items
 {
-    public class ItemResultSellerAddress
+    public class ResultSellerAddress
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

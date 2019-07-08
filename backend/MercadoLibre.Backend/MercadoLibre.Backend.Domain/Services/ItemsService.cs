@@ -22,14 +22,14 @@ namespace MercadoLibre.Backend.Domain.Services
             _httpClient = httpClient;
         }
 
-        public async Task<ItemByQuery> Search(string query)
+        public async Task<Search> Search(string query)
         {
             var response = await _httpClient.GetStringAsync(string.Format(API_GET_ITEMSQUERY, query));
 
-            return JsonConvert.DeserializeObject<ItemByQuery>(response);
+            return JsonConvert.DeserializeObject<Search>(response);
         }
 
-        public async Task<ItemById> DetailWithDescription(string id)
+        public async Task<Detail> DetailWithDescription(string id)
         {
             var response = await GetDetail(id);
 
@@ -38,18 +38,18 @@ namespace MercadoLibre.Backend.Domain.Services
             return response;
         }
 
-        private async Task<ItemById> GetDetail(string id)
+        private async Task<Detail> GetDetail(string id)
         {
             var response = await _httpClient.GetStringAsync(string.Format(API_GET_ITEMDETAIL, id));
 
-            return JsonConvert.DeserializeObject<ItemById>(response);
+            return JsonConvert.DeserializeObject<Detail>(response);
         }
 
-        private async Task<ItemDescriptionById> GetDescription(string id)
+        private async Task<Description> GetDescription(string id)
         {
             var response = await _httpClient.GetStringAsync(string.Format(API_GET_ITEMDESCRIPTION, id));
 
-            return JsonConvert.DeserializeObject<ItemDescriptionById>(response);
+            return JsonConvert.DeserializeObject<Description>(response);
         }
     }
 }
