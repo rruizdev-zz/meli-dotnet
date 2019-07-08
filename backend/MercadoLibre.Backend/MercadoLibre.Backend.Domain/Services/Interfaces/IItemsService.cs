@@ -7,6 +7,6 @@ namespace MercadoLibre.Backend.Domain.Services.Interfaces
     {
         Task<ItemByQuery> Search(string query);
 
-        Task<ItemById> Detail(string id);
+        Task<ItemById> DetailWithDescription(string id);
     }
 }

@@ -65,5 +65,7 @@ namespace MercadoLibre.Backend.Domain.Models
 
         [JsonProperty(PropertyName = "variations")]
         public IList<ItemByIdVariations> Variations { get; set; }
+
+        public ItemDescriptionById Description { get; set; }
     }
 }

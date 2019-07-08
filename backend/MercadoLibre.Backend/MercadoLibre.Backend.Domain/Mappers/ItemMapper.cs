@@ -14,6 +14,32 @@ namespace MercadoLibre.Backend.Domain.Mappers
             CreateMap<ItemByQuery, ItemByQueryResponse>()
                 .ForMember(d => d.Categories, o => o.MapFrom(s => GetCategories(s.Filters)))
                 .ForMember(d => d.Items, o => o.MapFrom(s => GetItems(s.Results)));
+            CreateMap<ItemById, ItemByIdResponse>()
+                .ForMember(d => d.Item, o => o.MapFrom(s => GetItem(s)));
+        }
+
+        private object GetItem(ItemById result)
+        {
+            var price = result.Price.GetValueOrDefault(0);
+
+            var decimals = price - Math.Truncate(price);
+
+            return new ItemIdResponse
+            {
+                Id = result.Id,
+                Title = result.Title,
+                Price = new PriceResponse
+                {
+                    Amount = price,
+                    Decimals = decimals * 100,
+                    Currency = result.CurrencyId
+                },
+                Picture = result.Thumbnail,
+                Condition = result.Condition,
+                FreeShipping = (bool)result.Shipping?.FreeShipping,
+                Description = result.Description.PlainText,
+                SoldQuantity = result.SoldQuantity.GetValueOrDefault(0)
+            };
         }
 
         private IList<string> GetCategories(IList<ItemByQueryFilter> filters)

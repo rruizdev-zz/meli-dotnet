@@ -47,9 +47,9 @@ namespace MercadoLibre.Backend.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, typeof(ItemById))]
         public async Task<IActionResult> Detail(string id)
         {
-            var response = await _service.Detail(id);
+            var response = await _service.DetailWithDescription(id);
 
-            return Ok(response);
+            return Ok(_mapper.Map<ItemByIdResponse>(response));
         }
 
 
