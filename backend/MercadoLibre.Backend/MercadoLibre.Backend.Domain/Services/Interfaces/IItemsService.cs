@@ -5,10 +5,8 @@ namespace MercadoLibre.Backend.Domain.Services.Interfaces
 {
     public interface IItemsService
     {
-        Task<ItemByQuery> GetBy(string query);
+        Task<ItemByQuery> Search(string query);
 
-        Task<ItemById> GetBy(int id);
-
-        Task<ItemDescriptionById> GetDescriptionBy(int id);
+        Task<ItemById> Detail(string id);
     }
 }

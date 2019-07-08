@@ -27,6 +27,9 @@ namespace MercadoLibre.Backend.Domain.Models
         [JsonProperty(PropertyName = "pictures")]
         public IList<ItemByIdPicture> Pictures { get; set; }
 
+        [JsonProperty(PropertyName = "attributes")]
+        public new IList<ItemByIdAttribute> Attributes { get; set; }
+
         [JsonProperty(PropertyName = "shipping")]
         public new ItemByIdShipping Shipping { get; set; }
 

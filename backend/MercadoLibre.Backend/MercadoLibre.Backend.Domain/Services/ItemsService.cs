@@ -14,32 +14,32 @@ namespace MercadoLibre.Backend.Domain.Services
 
         private const string API_GET_ITEMDETAIL = "https://api.mercadolibre.com/items/{0}";
 
-        private const string API_GET_ITEMDESCRIPTION = "https://api.mercadolibre.com/items/{0}/description";
+        //private const string API_GET_ITEMDESCRIPTION = "https://api.mercadolibre.com/items/{0}/description";
 
         public ItemsService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        public async Task<ItemByQuery> GetBy(string query)
+        public async Task<ItemByQuery> Search(string query)
         {
             var response = await _httpClient.GetStringAsync(string.Format(API_GET_ITEMSQUERY, query));
 
             return JsonConvert.DeserializeObject<ItemByQuery>(response);
         }
 
-        public async Task<ItemById> GetBy(int id)
+        public async Task<ItemById> Detail(string id)
         {
             var response = await _httpClient.GetStringAsync(string.Format(API_GET_ITEMDETAIL, id));
 
             return JsonConvert.DeserializeObject<ItemById>(response);
         }
 
-        public async Task<ItemDescriptionById> GetDescriptionBy(int id)
-        {
-            var response = await _httpClient.GetStringAsync(string.Format(API_GET_ITEMDESCRIPTION, id));
+        //public async Task<ItemDescriptionById> GetDescriptionBy(int id)
+        //{
+        //    var response = await _httpClient.GetStringAsync(string.Format(API_GET_ITEMDESCRIPTION, id));
 
-            return JsonConvert.DeserializeObject<ItemDescriptionById>(response);
-        }
+        //    return JsonConvert.DeserializeObject<ItemDescriptionById>(response);
+        //}
     }
 }

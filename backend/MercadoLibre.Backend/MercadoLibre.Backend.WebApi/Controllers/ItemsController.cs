@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MercadoLibre.Backend.Domain.Models;
 using MercadoLibre.Backend.Domain.Responses;
 using MercadoLibre.Backend.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -26,25 +27,31 @@ namespace MercadoLibre.Backend.WebApi.Controllers
         /// <summary>
         /// Get items by search
         /// </summary>
-        /// <param name="q">Search parameter</param>
+        /// <param name="q">Search query parameter</param>
         /// <returns>A lot of items</returns>
         [HttpGet]
         [SwaggerResponse(HttpStatusCode.OK, typeof(ItemByQueryResponse))]
-        public async Task<IActionResult> GetByQuery(string q)
+        public async Task<IActionResult> Search(string q)
         {
-            var response = await _service.GetBy(q);
+            var response = await _service.Search(q);
 
             return Ok(_mapper.Map<ItemByQueryResponse>(response));
         }
 
+        /// <summary>
+        /// Get a specific item detail
+        /// </summary>
+        /// <param name="id">Id of item</param>
+        /// <returns>A item detail</returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        [SwaggerResponse(HttpStatusCode.OK, typeof(ItemById))]
+        public async Task<IActionResult> Detail(string id)
         {
-            var itemResponse = await _service.GetBy(id);
+            var response = await _service.Detail(id);
 
-            var descriptionResponse = await _service.GetDescriptionBy(id);
-
-            return Ok(itemResponse);
+            return Ok(response);
         }
+
+
     }
 }
