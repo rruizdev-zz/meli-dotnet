@@ -1,5 +1,4 @@
-﻿using MercadoLibre.Backend.Domain.Models;
-using MercadoLibre.Backend.Domain.Services.Interfaces;
+﻿using MercadoLibre.Backend.Domain.Services.Interfaces;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
