@@ -11,7 +11,7 @@ namespace MercadoLibre.Backend.Domain.Responses.Items
         public string Title { get; set; }
 
         [JsonProperty(PropertyName = "price")]
-        public ItemPriceResponse Price { get; set; }
+        public PriceResponse Price { get; set; }
 
         [JsonProperty(PropertyName = "picture")]
         public string Picture { get; set; }

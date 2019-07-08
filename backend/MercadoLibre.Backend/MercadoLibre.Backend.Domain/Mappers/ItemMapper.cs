@@ -4,6 +4,7 @@ using MercadoLibre.Backend.Domain.Responses.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MercadoLibre.Backend.Domain.Responses;
 
 namespace MercadoLibre.Backend.Domain.Mappers
 {
@@ -28,7 +29,7 @@ namespace MercadoLibre.Backend.Domain.Mappers
             {
                 Id = result.Id,
                 Title = result.Title,
-                Price = new ItemPriceResponse
+                Price = new PriceResponse
                 {
                     Amount = price,
                     Decimals = decimals * 100,
@@ -36,16 +37,20 @@ namespace MercadoLibre.Backend.Domain.Mappers
                 },
                 Picture = result.Thumbnail,
                 Condition = result.Condition,
-                FreeShipping = (bool)result.Shipping?.FreeShipping,
+                FreeShipping = result.Shipping?.FreeShipping != null && (bool)result.Shipping?.FreeShipping,
                 Description = result.Description.PlainText,
                 SoldQuantity = result.SoldQuantity.GetValueOrDefault(0)
             };
         }
 
-        private IList<string> GetCategories(IList<ItemByQueryFilter> filters)
+        private static IList<string> GetCategories(IList<ItemByQueryFilter> filters)
         {
-            KeyValueAttribute subject = filters
-                .FirstOrDefault(f => f.Id == "category").Values.FirstOrDefault();
+            var subject = filters.FirstOrDefault(f => f.Id == "category")?.Values.FirstOrDefault();
+
+            if (subject == null)
+            {
+                return new List<string>();
+            }
 
             var results = new List<string>
             {
@@ -55,9 +60,10 @@ namespace MercadoLibre.Backend.Domain.Mappers
             results.AddRange(subject.PathFromRoot.Select(p => p.Name));
 
             return results;
+
         }
 
-        private IList<SearchItemResponse> GetItems(IList<ItemResult> results)
+        private static IList<SearchItemResponse> GetItems(IList<ItemResult> results)
         {
             return results.Select(result =>
             {
@@ -69,7 +75,7 @@ namespace MercadoLibre.Backend.Domain.Mappers
                 {
                     Id = result.Id,
                     Title = result.Title,
-                    Price = new ItemPriceResponse
+                    Price = new PriceResponse
                     {
                         Amount = price,
                         Decimals = decimals * 100,
@@ -77,7 +83,7 @@ namespace MercadoLibre.Backend.Domain.Mappers
                     },
                     Picture = result.Thumbnail,
                     Condition = result.Condition,
-                    FreeShipping = (bool)result.Shipping?.FreeShipping
+                    FreeShipping = result.Shipping?.FreeShipping != null && (bool)result.Shipping?.FreeShipping
                 };
             }).ToList();
         }

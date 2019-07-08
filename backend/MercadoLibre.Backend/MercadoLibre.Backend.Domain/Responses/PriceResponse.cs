@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace MercadoLibre.Backend.Domain.Responses.Items
+namespace MercadoLibre.Backend.Domain.Responses
 {
-    public class ItemPriceResponse
+    public class PriceResponse
     {
         [JsonProperty(PropertyName = "currency")]
         public string Currency { get; set; }
