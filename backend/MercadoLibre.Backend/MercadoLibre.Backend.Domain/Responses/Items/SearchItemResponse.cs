@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace MercadoLibre.Backend.Domain.Responses
+namespace MercadoLibre.Backend.Domain.Responses.Items
 {
-    public class ItemResponse
+    public class SearchItemResponse
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
@@ -11,7 +11,7 @@ namespace MercadoLibre.Backend.Domain.Responses
         public string Title { get; set; }
 
         [JsonProperty(PropertyName = "price")]
-        public PriceResponse Price { get; set; }
+        public ItemPriceResponse Price { get; set; }
 
         [JsonProperty(PropertyName = "picture")]
         public string Picture { get; set; }

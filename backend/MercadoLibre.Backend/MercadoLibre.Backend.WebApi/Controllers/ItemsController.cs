@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using MercadoLibre.Backend.Domain.Models;
-using MercadoLibre.Backend.Domain.Responses;
+using MercadoLibre.Backend.Domain.Responses.Items;
 using MercadoLibre.Backend.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
@@ -30,12 +29,12 @@ namespace MercadoLibre.Backend.WebApi.Controllers
         /// <param name="q">Search query parameter</param>
         /// <returns>A lot of items</returns>
         [HttpGet]
-        [SwaggerResponse(HttpStatusCode.OK, typeof(ItemByQueryResponse))]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(SearchResponse))]
         public async Task<IActionResult> Search(string q)
         {
             var response = await _service.Search(q);
 
-            return Ok(_mapper.Map<ItemByQueryResponse>(response));
+            return Ok(_mapper.Map<SearchResponse>(response));
         }
 
         /// <summary>
@@ -44,12 +43,12 @@ namespace MercadoLibre.Backend.WebApi.Controllers
         /// <param name="id">Id of item</param>
         /// <returns>A item detail</returns>
         [HttpGet("{id}")]
-        [SwaggerResponse(HttpStatusCode.OK, typeof(ItemById))]
+        [SwaggerResponse(HttpStatusCode.OK, typeof(DetailResponse))]
         public async Task<IActionResult> Detail(string id)
         {
             var response = await _service.DetailWithDescription(id);
 
-            return Ok(_mapper.Map<ItemByIdResponse>(response));
+            return Ok(_mapper.Map<DetailResponse>(response));
         }
 
 

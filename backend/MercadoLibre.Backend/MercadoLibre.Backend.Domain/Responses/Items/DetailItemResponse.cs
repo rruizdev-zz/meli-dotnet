@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace MercadoLibre.Backend.Domain.Responses
+namespace MercadoLibre.Backend.Domain.Responses.Items
 {
-    public class ItemIdResponse : ItemResponse
+    public class DetailItemResponse : SearchItemResponse
     {
         [JsonProperty(PropertyName = "sold_quantity")]
         public int SoldQuantity { get; set; }

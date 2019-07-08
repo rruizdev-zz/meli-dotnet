@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MercadoLibre.Backend.Domain.Models;
-using MercadoLibre.Backend.Domain.Responses;
+using MercadoLibre.Backend.Domain.Responses.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +11,10 @@ namespace MercadoLibre.Backend.Domain.Mappers
     {
         public ItemMapper()
         {
-            CreateMap<ItemByQuery, ItemByQueryResponse>()
+            CreateMap<ItemByQuery, SearchResponse>()
                 .ForMember(d => d.Categories, o => o.MapFrom(s => GetCategories(s.Filters)))
                 .ForMember(d => d.Items, o => o.MapFrom(s => GetItems(s.Results)));
-            CreateMap<ItemById, ItemByIdResponse>()
+            CreateMap<ItemById, DetailResponse>()
                 .ForMember(d => d.Item, o => o.MapFrom(s => GetItem(s)));
         }
 
@@ -24,11 +24,11 @@ namespace MercadoLibre.Backend.Domain.Mappers
 
             var decimals = price - Math.Truncate(price);
 
-            return new ItemIdResponse
+            return new DetailItemResponse
             {
                 Id = result.Id,
                 Title = result.Title,
-                Price = new PriceResponse
+                Price = new ItemPriceResponse
                 {
                     Amount = price,
                     Decimals = decimals * 100,
@@ -57,7 +57,7 @@ namespace MercadoLibre.Backend.Domain.Mappers
             return results;
         }
 
-        private IList<ItemResponse> GetItems(IList<ItemResult> results)
+        private IList<SearchItemResponse> GetItems(IList<ItemResult> results)
         {
             return results.Select(result =>
             {
@@ -65,11 +65,11 @@ namespace MercadoLibre.Backend.Domain.Mappers
 
                 var decimals = price - Math.Truncate(price);
 
-                return new ItemResponse
+                return new SearchItemResponse
                 {
                     Id = result.Id,
                     Title = result.Title,
-                    Price = new PriceResponse
+                    Price = new ItemPriceResponse
                     {
                         Amount = price,
                         Decimals = decimals * 100,

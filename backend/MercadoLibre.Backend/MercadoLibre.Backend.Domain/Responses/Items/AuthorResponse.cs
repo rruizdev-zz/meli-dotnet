@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace MercadoLibre.Backend.Domain.Responses
+namespace MercadoLibre.Backend.Domain.Responses.Items
 {
     public class AuthorResponse
     {

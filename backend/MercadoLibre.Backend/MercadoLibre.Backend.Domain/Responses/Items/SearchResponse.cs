@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace MercadoLibre.Backend.Domain.Responses
+namespace MercadoLibre.Backend.Domain.Responses.Items
 {
-    public class ItemByQueryResponse
+    public class SearchResponse
     {
         [JsonProperty(PropertyName = "author")]
         public AuthorResponse Author => new AuthorResponse();
@@ -12,6 +12,6 @@ namespace MercadoLibre.Backend.Domain.Responses
         public IList<string> Categories { get; set; }
         
         [JsonProperty(PropertyName = "items")]
-        public IList<ItemResponse> Items { get; set; }
+        public IList<SearchItemResponse> Items { get; set; }
     }
 }
