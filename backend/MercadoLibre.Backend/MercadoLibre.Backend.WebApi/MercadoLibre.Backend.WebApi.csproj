@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MercadoLibre.Backend.Application\MercadoLibre.Backend.Application.csproj" />
     <ProjectReference Include="..\MercadoLibre.Backend.Domain\MercadoLibre.Backend.Domain.csproj" />
   </ItemGroup>
 

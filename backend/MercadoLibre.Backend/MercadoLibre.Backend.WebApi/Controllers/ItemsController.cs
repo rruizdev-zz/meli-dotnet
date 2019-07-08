@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using MercadoLibre.Backend.Domain.Responses.Items;
-using MercadoLibre.Backend.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
 using System.Net;
 using System.Threading.Tasks;
+using MercadoLibre.Backend.Application.Services.Interfaces;
 
 namespace MercadoLibre.Backend.WebApi.Controllers
 {

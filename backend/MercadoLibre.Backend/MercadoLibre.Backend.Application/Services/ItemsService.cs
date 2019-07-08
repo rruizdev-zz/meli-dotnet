@@ -1,10 +1,10 @@
-﻿using MercadoLibre.Backend.Domain.Services.Interfaces;
-using Newtonsoft.Json;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
+using MercadoLibre.Backend.Application.Services.Interfaces;
 using MercadoLibre.Backend.Domain.Models.Items;
+using Newtonsoft.Json;
 
-namespace MercadoLibre.Backend.Domain.Services
+namespace MercadoLibre.Backend.Application.Services
 {
     public class ItemsService : IItemsService
     {

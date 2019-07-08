@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
+using MercadoLibre.Backend.Domain.Models.Items;
+using MercadoLibre.Backend.Domain.Responses;
 using MercadoLibre.Backend.Domain.Responses.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MercadoLibre.Backend.Domain.Models.Items;
-using MercadoLibre.Backend.Domain.Responses;
 
-namespace MercadoLibre.Backend.Domain.Mappers
+namespace MercadoLibre.Backend.Application.Mappers
 {
     public class ItemMapper : Profile
     {
