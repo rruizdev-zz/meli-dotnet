@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
 using System.Net;
 using System.Threading.Tasks;
+using MercadoLibre.Backend.Application;
 using MercadoLibre.Backend.Application.Services.Interfaces;
+using Microsoft.Extensions.Options;
 
 namespace MercadoLibre.Backend.WebApi.Controllers
 {
@@ -16,11 +18,15 @@ namespace MercadoLibre.Backend.WebApi.Controllers
 
         private readonly IMapper _mapper;
 
-        public ItemsController(IItemsService service, IMapper mapper)
+        private readonly IOptions<ApplicationSettings> _settings;
+
+        public ItemsController(IItemsService service, IMapper mapper, IOptions<ApplicationSettings> settings)
         {
             _service = service;
 
             _mapper = mapper;
+
+            _settings = settings;
         }
 
         /// <summary>
@@ -32,7 +38,7 @@ namespace MercadoLibre.Backend.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, typeof(SearchResponse))]
         public async Task<IActionResult> Search(string q)
         {
-            var response = await _service.Search(q);
+            var response = await _service.Search(q, _settings.Value.UrlItemSearch);
 
             return Ok(_mapper.Map<SearchResponse>(response));
         }
@@ -46,7 +52,7 @@ namespace MercadoLibre.Backend.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, typeof(DetailResponse))]
         public async Task<IActionResult> Detail(string id)
         {
-            var response = await _service.DetailWithDescription(id);
+            var response = await _service.DetailWithDescription(id, _settings.Value.UrlItemDetail, _settings.Value.UrlItemDescription);
 
             return Ok(_mapper.Map<DetailResponse>(response));
         }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MercadoLibre.Backend.Application;
 using MercadoLibre.Backend.Application.Mappers;
 using MercadoLibre.Backend.Application.Services;
 using MercadoLibre.Backend.Application.Services.Interfaces;
@@ -27,6 +28,8 @@ namespace MercadoLibre.Backend.WebApi
             {
                 config.AddProfile(new ItemMapper());
             }).CreateMapper());
+
+            services.Configure<ApplicationSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
