@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NSwag;
 
 namespace MercadoLibre.Backend.WebApi
 {
@@ -33,7 +34,22 @@ namespace MercadoLibre.Backend.WebApi
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddSwaggerDocument();
+            services.AddSwaggerDocument(config =>
+            {
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "v1";
+                    document.Info.Title = "meli-dotnet";
+                    document.Info.Description = "ASP.NET Core Web API works with MercadoLibre API";
+                    document.Info.TermsOfService = "None";
+                    document.Info.Contact = new OpenApiContact
+                    {
+                        Name = "Roberto Ruiz",
+                        Email = "robertoruiz@live.com.ar",
+                        Url = "https://robrui.github.io"
+                    };
+                };
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
