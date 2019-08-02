@@ -1,4 +1,4 @@
-## meli-example
+## meli-dotnet
 
 ASP.NET Core Web API demo, works with MercadoLibre API. Their main function are search and retrieve articles.
 
