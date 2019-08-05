@@ -14,6 +14,8 @@ namespace MercadoLibre.Backend.WebApi
 {
     public class Startup
     {
+        private readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,6 +33,14 @@ namespace MercadoLibre.Backend.WebApi
             }).CreateMapper());
 
             services.Configure<ApplicationSettings>(Configuration.GetSection("AppSettings"));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins, builder =>
+                {
+                    builder.WithOrigins("http://localhost:1810");
+                });
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -58,6 +68,8 @@ namespace MercadoLibre.Backend.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseMvc();
 
