@@ -7,7 +7,7 @@ namespace MercadoLibre.Backend.Domain.Responses
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "aulastnamethor")]
+        [JsonProperty(PropertyName = "lastname")]
         public string LastName { get; set; }
 
         public AuthorResponse()

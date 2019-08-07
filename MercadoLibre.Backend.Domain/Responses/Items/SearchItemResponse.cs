@@ -21,5 +21,8 @@ namespace MercadoLibre.Backend.Domain.Responses.Items
 
         [JsonProperty(PropertyName = "free_shipping")]
         public bool FreeShipping { get; set; }
+
+        [JsonProperty(PropertyName = "location")]
+        public string Location { get; set; }
     }
 }

@@ -84,7 +84,8 @@ namespace MercadoLibre.Backend.Application.Mappers
                     },
                     Picture = result.Thumbnail,
                     Condition = result.Condition,
-                    FreeShipping = result.Shipping?.FreeShipping != null && (bool)result.Shipping?.FreeShipping
+                    FreeShipping = result.Shipping?.FreeShipping != null && (bool)result.Shipping?.FreeShipping,
+                    Location = result.Address?.StateName
                 };
             }).ToList();
         }
