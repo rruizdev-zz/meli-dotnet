@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace MercadoLibre.Backend.WebApi
 {
+    [ExcludeFromCodeCoverage]
     public class Program
     {
         public static void Main(string[] args) => CreateWebHostBuilder(args).Build().Run();

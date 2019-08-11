@@ -56,7 +56,5 @@ namespace MercadoLibre.Backend.WebApi.Controllers
 
             return Ok(_mapper.Map<DetailResponse>(response));
         }
-
-
     }
 }

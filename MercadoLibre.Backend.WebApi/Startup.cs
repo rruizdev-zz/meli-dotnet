@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Diagnostics.CodeAnalysis;
+using AutoMapper;
 using MercadoLibre.Backend.Application;
 using MercadoLibre.Backend.Application.Mappers;
 using MercadoLibre.Backend.Application.Services;
@@ -12,6 +13,7 @@ using NSwag;
 
 namespace MercadoLibre.Backend.WebApi
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         public Startup(IConfiguration configuration)
