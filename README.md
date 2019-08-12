@@ -21,4 +21,7 @@ After clone this repository, navigate into directory and put these commands:
 
 > Assumming you've installed .NET Core SDK. Please, download and install it if you didn't make it yet.
 
-Voilá! This solution running local, in `http://localhost:1811`
+### Voilá! 
+This solution running local, in `http://localhost:1811`.
+
+If you want to view methods and entities, you can see Swagger in `http://localhost:1811/swagger`.
