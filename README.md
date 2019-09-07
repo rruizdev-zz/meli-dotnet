@@ -8,8 +8,10 @@ This solution has three layers:
 
 ## Technologies
 * .NET Core 2.2 ([Download](https://dotnet.microsoft.com/download)). Compatibility with Windows, Linux and Mac.
-* Swagger ([NSwag](https://github.com/RicoSuter/NSwag))
-* NUnit ([Console](https://nunit.org/download/))
+* Swagger ([NSwag](https://github.com/RicoSuter/NSwag)).
+* NUnit ([Console](https://nunit.org/download/)).
+* Node.js ([Download](https://nodejs.org/es/download/)) & TypeScript.
+* Angular ([Docs](https://angular.io/)).
 
 ## How to run it
 After clone this repository, navigate into directory and put these commands:
