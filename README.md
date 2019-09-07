@@ -14,14 +14,21 @@ This solution has three layers:
 * Angular ([Docs](https://angular.io/)).
 
 ## How to run it
-After clone this repository, navigate into directory and put these commands:
+After clone this repository, navigate into directory and put these commands to build backend:
 
     cd MercadoLibre.Backend.WebApi
     dotnet restore
     dotnet build
     dotnet run
 
-> Assumming you've installed .NET Core SDK. Please, download and install it if you didn't make it yet.
+And, to run frontend, you must input these commands:
+
+    cd MercadoLibre.Backend.Web
+    dotnet restore
+    dotnet build
+    dotnet run
+
+> Assumming you've installed .NET Core SDK, Node.js and Angular dependencies. Please, download and install it if you didn't make it yet.
 
 ### Voilá! 
 This solution running local, in two ports:
