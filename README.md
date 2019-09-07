@@ -1,10 +1,11 @@
 # meli-dotnet
 ASP.NET Core Web API demo, works with MercadoLibre API. Their main function are search and retrieve articles in SPA.
 
-This solution has three layers: 
+This solution has four layers: 
 * WebApi (controllers, viewable in Swagger)
 * Application (with business logic, where data get from [MercadoLibre public API](https://developers.mercadolibre.com.ar/es_ar/items-y-busquedas), and mappers)
 * Domain (only entities)
+* Web (only frontend content)
 
 ## Technologies
 * .NET Core 2.2 ([Download](https://dotnet.microsoft.com/download)). Compatibility with Windows, Linux and Mac.
