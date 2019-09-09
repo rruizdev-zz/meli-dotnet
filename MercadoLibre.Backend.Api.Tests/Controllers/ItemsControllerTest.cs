@@ -4,13 +4,13 @@ using MercadoLibre.Backend.Application;
 using MercadoLibre.Backend.Application.Services.Interfaces;
 using MercadoLibre.Backend.Domain.Models.Items;
 using MercadoLibre.Backend.Domain.Responses.Items;
-using MercadoLibre.Backend.WebApi.Controllers;
+using MercadoLibre.Backend.Api.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Moq;
 using NUnit.Framework;
 
-namespace MercadoLibre.Backend.WebApi.Tests.Controllers
+namespace MercadoLibre.Backend.Api.Tests.Controllers
 {
     [TestFixture]
     public class ItemsControllerTest

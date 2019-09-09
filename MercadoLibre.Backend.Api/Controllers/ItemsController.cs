@@ -8,7 +8,7 @@ using MercadoLibre.Backend.Application;
 using MercadoLibre.Backend.Application.Services.Interfaces;
 using Microsoft.Extensions.Options;
 
-namespace MercadoLibre.Backend.WebApi.Controllers
+namespace MercadoLibre.Backend.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NSwag;
 
-namespace MercadoLibre.Backend.WebApi
+namespace MercadoLibre.Backend.Api
 {
     [ExcludeFromCodeCoverage]
     public class Startup

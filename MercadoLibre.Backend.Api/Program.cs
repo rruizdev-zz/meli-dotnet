@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace MercadoLibre.Backend.WebApi
+namespace MercadoLibre.Backend.Api
 {
     [ExcludeFromCodeCoverage]
     public class Program
