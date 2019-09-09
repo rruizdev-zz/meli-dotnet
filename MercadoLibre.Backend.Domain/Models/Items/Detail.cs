@@ -61,7 +61,7 @@ namespace MercadoLibre.Backend.Domain.Models.Items
         public DateTime LastUpdated { get; set; }
 
         [JsonProperty(PropertyName = "health")]
-        public double Health { get; set; }
+        public double? Health { get; set; }
 
         [JsonProperty(PropertyName = "variations")]
         public IList<DetailVariation> Variations { get; set; }
