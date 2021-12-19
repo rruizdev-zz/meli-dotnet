@@ -42,7 +42,7 @@ namespace Meli.Backend.Api
                 });
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc();
 
             services.AddSwaggerDocument(config =>
             {
@@ -62,7 +62,7 @@ namespace Meli.Backend.Api
             });
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
