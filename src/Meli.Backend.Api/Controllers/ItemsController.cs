@@ -1,11 +1,9 @@
 ﻿using System.Net;
-using AutoMapper;
-using Meli.Backend.Application;
-using Meli.Backend.Application.Services.Interfaces;
+using MediatR;
+using Meli.Backend.Application.Query.Items.GetByCode;
+using Meli.Backend.Application.Query.Items.GetByQuery;
 using Meli.Backend.Domain.Responses.Items;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using NSwag.Annotations;
 
 namespace Meli.Backend.Api.Controllers
 {
@@ -13,47 +11,31 @@ namespace Meli.Backend.Api.Controllers
     [ApiController]
     public class ItemsController : ControllerBase
     {
-        private readonly IItemsService _service;
+        private readonly IMediator _mediator;
 
-        private readonly IMapper _mapper;
-
-        private readonly IOptions<ApplicationSettings> _settings;
-
-        public ItemsController(IItemsService service, IMapper mapper, IOptions<ApplicationSettings> settings)
+        public ItemsController(IMediator mediator)
         {
-            _service = service;
-
-            _mapper = mapper;
-
-            _settings = settings;
+            _mediator = mediator;
         }
 
         /// <summary>
         /// Get items by search
         /// </summary>
-        /// <param name="q">Search query parameter</param>
+        /// <param name="query">Search query parameter</param>
         /// <returns>A lot of items</returns>
         [HttpGet]
-        [SwaggerResponse(HttpStatusCode.OK, typeof(SearchResponse))]
-        public async Task<IActionResult> Search(string q)
-        {
-            var response = await _service.Search(q, _settings.Value.UrlItemSearch);
-
-            return Ok(_mapper.Map<SearchResponse>(response));
-        }
+        [ProducesResponseType(typeof(SearchResponse), (int) HttpStatusCode.OK)]
+        public async Task<IActionResult> GetByQuery(string query) =>
+            Ok(await _mediator.Send(new GetByQueryRequest(query)));
 
         /// <summary>
         /// Get a specific item detail
         /// </summary>
-        /// <param name="id">Id of item</param>
+        /// <param name="code">Id of item</param>
         /// <returns>A item detail</returns>
-        [HttpGet("{id}")]
-        [SwaggerResponse(HttpStatusCode.OK, typeof(DetailResponse))]
-        public async Task<IActionResult> Detail(string id)
-        {
-            var response = await _service.DetailWithDescription(id, _settings.Value.UrlItemDetail, _settings.Value.UrlItemDescription);
-
-            return Ok(_mapper.Map<DetailResponse>(response));
-        }
+        [HttpGet("{code}")]
+        [ProducesResponseType(typeof(DetailResponse), (int) HttpStatusCode.OK)]
+        public async Task<IActionResult> GetByCode(string code) =>
+            Ok(await _mediator.Send(new GetByCodeRequest(code)));
     }
 }

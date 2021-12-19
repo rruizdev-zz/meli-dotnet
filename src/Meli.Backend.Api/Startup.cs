@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using AutoMapper;
+using MediatR;
 using Meli.Backend.Application;
 using Meli.Backend.Application.Mappers;
 using Meli.Backend.Application.Services;
 using Meli.Backend.Application.Services.Interfaces;
-using NSwag;
 
 namespace Meli.Backend.Api
 {
@@ -37,24 +37,27 @@ namespace Meli.Backend.Api
                 });
             });
 
-            services.AddMvc(o => o.EnableEndpointRouting = false);
+            services.AddMediatR(typeof(Startup));
 
-            services.AddSwaggerDocument(config =>
-            {
-                config.PostProcess = document =>
-                {
-                    document.Info.Version = "v1";
-                    document.Info.Title = "meli-dotnet";
-                    document.Info.Description = "ASP.NET Core Web API works with external API";
-                    document.Info.TermsOfService = "None";
-                    document.Info.Contact = new OpenApiContact
-                    {
-                        Name = "Roberto Ruiz",
-                        Email = "robertoruiz@live.com.ar",
-                        Url = "https://robrui.github.io"
-                    };
-                };
-            });
+            services.AddControllers();
+
+            services.AddSwaggerGen();
+            //{
+            //    config.
+
+            //    config.SchemaGeneratorOptions = document =>
+            //    {
+            //        document.Info.Version = "v1";
+            //        document.Info.Title = "meli-dotnet";
+            //        document.Info.Description = "ASP.NET Core Web API works with external API";
+            //        document.Info.TermsOfService = "None";
+            //        document.Info.Contact = new OpenApiContact
+            //        {
+            //            Name = "Roberto Ruiz",
+            //            Url = "https://linktr.ee/rruizdev"
+            //        };
+            //    };
+            //});
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -66,11 +69,9 @@ namespace Meli.Backend.Api
 
             app.UseCors("_corsOrigins");
 
-            app.UseMvc();
+            app.UseSwagger();
 
-            app.UseOpenApi();
-
-            app.UseSwaggerUi3();
+            app.UseSwaggerUI();
         }
     }
 }
