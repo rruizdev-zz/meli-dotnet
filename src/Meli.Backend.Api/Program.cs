@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
 
 namespace Meli.Backend.Api
 {

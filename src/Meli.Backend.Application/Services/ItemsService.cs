@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-using Meli.Backend.Application.Services.Interfaces;
+﻿using Meli.Backend.Application.Services.Interfaces;
 using Meli.Backend.Domain.Models.Items;
 using Newtonsoft.Json;
 

@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-using Meli.Backend.Application.Services;
+﻿using Meli.Backend.Application.Services;
 using Meli.Backend.Application.Services.Interfaces;
 using Moq;
 using NUnit.Framework;

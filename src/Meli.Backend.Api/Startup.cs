@@ -4,11 +4,6 @@ using Meli.Backend.Application;
 using Meli.Backend.Application.Mappers;
 using Meli.Backend.Application.Services;
 using Meli.Backend.Application.Services.Interfaces;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using NSwag;
 
 namespace Meli.Backend.Api
@@ -42,7 +37,7 @@ namespace Meli.Backend.Api
                 });
             });
 
-            services.AddMvc();
+            services.AddMvc(o => o.EnableEndpointRouting = false);
 
             services.AddSwaggerDocument(config =>
             {

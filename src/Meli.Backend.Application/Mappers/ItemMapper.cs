@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using Meli.Backend.Domain.Models.Items;
 using Meli.Backend.Domain.Responses;
 using Meli.Backend.Domain.Responses.Items;

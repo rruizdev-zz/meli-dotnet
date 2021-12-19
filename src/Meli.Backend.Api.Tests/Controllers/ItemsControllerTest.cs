@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Meli.Backend.Api.Controllers;
 using Meli.Backend.Application;
 using Meli.Backend.Application.Services.Interfaces;
